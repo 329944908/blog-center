@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+			table{margin: 0 auto;}
+			td{width: 100px;text-align: center;}
+	</style>
+	<title></title>
+</head>
+<body>
+	<h1>你好：<?php echo $_SESSION['me']['name'] ?></h1>
+	<table border="2px" cellspacing="0" cellpadding="0" background="a.jpg">
+		<caption fontsize="8">用户中心</caption>
+		<tr>
+			<td>id</td>
+			<td>name</td>
+			<td>age</td>
+			<td>password</td>
+			<td>del</td>
+			<td>edit</td>
+		</tr>
+		
+			<?php foreach ($data as $key => $value) { ?>
+			<tr>
+				<td><?php echo $value['id'];?></td>
+				<td><?php echo $value['name'];?></td>
+				<td><?php echo $value['age'];?></td>
+				<td><?php echo $value['password'];?></td>
+				<td>
+					<form action="index.php?c=User&a=delete&id=<?php echo $value['id'];?>" method="post">
+						<input type="hidden" name="id" value="<?php echo $value['id'];?>">
+						<input type="submit" value="删除">
+					</form>
+				</td>
+				<td>
+					<form action="index.php?c=User&a=update&id=<?php echo $value['id'];?>" method="post">
+						<input type="hidden" name="id" value="<?php echo $value['id'];?>">
+						<input type="submit" value="修改">
+					</form>		
+				</td>
+			</tr>
+			<?php } ?>
+	</table>
+	<a href="index.php?c=User&a=add" align="center">添加</a><br>
+	<a href="index.php?c=UserCenter&a=logout" align="center">退出</a>
+</body>
+</html>

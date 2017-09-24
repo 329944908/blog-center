@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>你好：<?php echo $_SESSION['me']['name'] ?></h1>
+	<form action="index.php?c=User&a=doUpdate" method="post">
+		name:   <input type="text" name="username" value="<?php echo $info['name'];?>"><br>
+		age:      <input type="text" name="age" value="<?php echo $info['age'];?>"><br>
+		password: <input type="text" name="password" value="<?php echo $info['password'];?>"><br>
+		<input type="hidden" name="id" value="<?php echo $info['id'];?>">
+		<input type="submit" name="" value="提交"><br>
+	</form>
+</body>
+</html>

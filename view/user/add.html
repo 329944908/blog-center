@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h1>你好：<?php echo $_SESSION['me']['name'] ?></h1>
+	<form action="index.php?c=User&a=doAdd" method="post">
+	<table align="center" bgcolor="green" cellpadding="0px" cellspacing="0px" border="2px" bordercolor="red" style="margin-top:50px">
+		<tr>
+			<td>name: </td>
+			<td><input type="text" name="username"></td>
+		</tr>
+		<tr>
+			<td>age:</td>
+			<td><input type="text" name="age"></td>
+		</tr>
+		<tr>
+			<td>password:</td>
+			<td><input type="text" name="password"></td>
+		</tr>
+		<tr>
+       		<td colspan="2" align="center"><input type="submit" name="" value="提交"></td>       
+       	</tr>
+	</table>
+		
+	</form>
+</body>
+</html>
