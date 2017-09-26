@@ -4,6 +4,7 @@
 	<style type="text/css">
 			table{margin: 0 auto;}
 			td{width: 100px;text-align: center;}
+			li{display: inline-block;border: 1px solid #ccc;padding: 10px;}
 	</style>
 	<title></title>
 </head>
@@ -22,6 +23,7 @@
 			<td>id</td>
 			<td>content</td>
 			<td>user_user</td>
+			<td>info</td>
 		</tr>
 		
 		<?php foreach ($data as $key => $value) { ?>
@@ -29,9 +31,17 @@
 			<td><?php echo $value['id'];?></td>
 			<td><?php echo mb_substr($value['content'], 0, 19,'utf8');?></td>
 			<td><?php echo $value['user_name'];?></td>
+			<td><a href="index.php?c=Blog&a=info&id=<?php echo $value['id'];?>">详情</a></td>
 		</tr>
 		<?php } ?>
 	</table>
+	<div align="center">
+		<ul>
+			<?php for($i=1;$i<=$allPage;$i++){ ?>
+			<li><a href="index.php?c=Blog&a=lists&p=<?php echo $i;?>"><?php echo $i;?></a></li>
+			<?php } ?>
+		</ul>
+	</div>
 	<a href="index.php?c=Blog&a=add" align="center">发布段子</a><br>
 </body>
 </html>

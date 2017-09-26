@@ -38,6 +38,12 @@
 				die();
 			}
 			$userModel = new userModel();
+			$userinfo = $userModel->getUserInfoByName($name);
+			if(!empty($userinfo)){
+				header('localhost:index.php?c=UserCenter&a=reg');
+				echo '用户名已存在，请重新填写';
+				die();
+			}
 			$status = $userModel->addUser($name, $age, $password);
 			if ($status) {
 				header('Refresh:1,Url=index.php?c=UserCenter&a=login');
